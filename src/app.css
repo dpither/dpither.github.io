@@ -1,1 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import 'tailwindcss';
+
+@theme {
+	--color-*: initial;
+	--color-black: oklch(0.2551 0.0015 197.06);
+	--color-white: oklch(0.967 0.0101 145.5);
+
+	--font-text: 'JetBrains Mono', monospace;
+	--font-display: 'Quantico', sans-serif;
+}
+
+@layer components {
+	.corner-focus {
+		--focus-t: 1px; /* border thickness */
+		--focus-c: theme(--color-white); /* color of the border */
+		--focus-l: 4px; /* corner width */
+
+		border: var(--focus-t) solid transparent;
+		--_g: transparent 90deg, var(--focus-c) 0;
+		--_p: var(--focus-l) var(--focus-l) border-box no-repeat;
+		@apply box-border focus-visible:outline-none;
+	}
+	.corner-focus {
+		background: none;
+	}
+	.corner-focus:hover,
+	.corner-focus:focus-visible {
+		background:
+			conic-gradient(from 90deg at top var(--focus-t) left var(--focus-t), var(--_g)) 0 0 /
+				var(--_p),
+			conic-gradient(from 180deg at top var(--focus-t) right var(--focus-t), var(--_g)) 100% 0 /
+				var(--_p),
+			conic-gradient(from 0deg at bottom var(--focus-t) left var(--focus-t), var(--_g)) 0 100% /
+				var(--_p),
+			conic-gradient(from -90deg at bottom var(--focus-t) right var(--focus-t), var(--_g)) 100%
+				100% / var(--_p);
+	}
+}
