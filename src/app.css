@@ -10,10 +10,24 @@
 	--font-display: 'Quantico', sans-serif;
 }
 
+@layer base {
+	body {
+		@apply font-text flex min-h-screen flex-col bg-black text-white;
+	}
+
+	h1 {
+		@apply font-display text-5xl;
+	}
+
+	h2 {
+		@apply font-display text-3xl;
+	}
+}
+
 @layer components {
 	.corner-focus {
 		--focus-t: 1px; /* border thickness */
-		--focus-c: theme(--color-white); /* color of the border */
+		--focus-c: var(--color-white); /* color of the border */
 		--focus-l: 4px; /* corner width */
 
 		border: var(--focus-t) solid transparent;
