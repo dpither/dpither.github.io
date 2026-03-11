@@ -1,10 +1,37 @@
 <script>
-	import Clock from '$lib/components/Clock.svelte';
-	import Date from '$lib/components/Date.svelte';
+	import { fade } from 'svelte/transition';
 </script>
 
-<div class="flex h-full w-full flex-col items-center justify-center bg-black text-white">
-	<Clock />
-	<Date />
-	HOME
-</div>
+<main>
+	<div class="font-xl flex w-full flex-col items-center justify-center bg-black text-white" in:fade>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+		<p>HOME</p>
+	</div>
+</main>

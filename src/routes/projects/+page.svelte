@@ -1,5 +1,5 @@
-<script lang="ts"></script>
+<script lang="ts">
+	import { fade } from 'svelte/transition';
+</script>
 
-<div class="flex h-full w-full flex-col items-center justify-center bg-black text-white">
-	PROJECTS
-</div>
+<main class="items-center justify-center"><div in:fade>PROJECTS</div></main>
