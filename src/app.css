@@ -8,6 +8,7 @@
 	--color-white: oklch(0.967 0.0101 145.5);
 	--color-border: color-mix(in oklch, var(--color-white) 30%, transparent);
 	--font-text: 'JetBrains Mono', monospace;
+	/* --font-display: 'JetBrains Mono', monospace; */
 	--font-display: 'Chakra Petch', sans-serif;
 }
 
@@ -16,11 +17,19 @@
 		@apply mx-4 flex h-full flex-1 overflow-auto border-x-1 border-x-white/30;
 	}
 	h1 {
-		@apply font-display text-5xl;
+		@apply font-display text-2xl;
 	}
 
 	h2 {
-		@apply font-display text-3xl;
+		@apply font-display text-xl;
+	}
+
+	h3 {
+		@apply font-text text-lg;
+	}
+
+	p {
+		@apply font-text text-sm font-extralight;
 	}
 }
 

@@ -7,7 +7,7 @@
 
 <a
 	{href}
-	class="font-display corner-focus flex h-9 items-center px-3 text-center text-sm uppercase
-	{isActive ? 'bg-white text-black' : 'text-white'}"
-	aria-current={isActive ? 'page' : undefined}>{label}</a
+	aria-current={isActive ? 'page' : undefined}
+	class="font-display corner-focus flex items-center px-3 text-center uppercase select-none
+	{isActive ? 'bg-white text-black' : 'text-white'}">{label}</a
 >
