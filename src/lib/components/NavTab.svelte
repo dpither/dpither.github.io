@@ -1,13 +1,13 @@
-<script>
-	import { page } from '$app/state';
+<script lang="ts">
+	import { cornerBreathe } from '$lib/actions/cornerBreathe';
 
-	let { href, label } = $props();
-	let isActive = $derived(page.url.pathname === href);
+	let { href, label, isActive = false } = $props();
 </script>
 
 <a
+	use:cornerBreathe
 	{href}
 	aria-current={isActive ? 'page' : undefined}
-	class="font-display corner-focus flex items-center px-3 text-center uppercase select-none
-	{isActive ? 'bg-white text-black' : 'text-white'}">{label}</a
+	class="font-display corner-focus flex h-8 items-center px-3 text-center font-medium uppercase transition-all select-none
+	{isActive ? ' bg-white text-black' : 'text-white'}">{label}</a
 >

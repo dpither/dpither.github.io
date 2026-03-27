@@ -1,21 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Fira+Code:wght@300..700&display=swap');
 @import 'tailwindcss';
 @plugin '@iconify/tailwind4';
 
 @theme {
 	--color-*: initial;
-	--color-black: oklch(0.2551 0.0015 197.06);
-	--color-white: oklch(0.967 0.0101 145.5);
-	--color-border: color-mix(in oklch, var(--color-white) 30%, transparent);
-	--font-text: 'JetBrains Mono', monospace;
-	/* --font-display: 'JetBrains Mono', monospace; */
+	--color-err: #ff00ff;
+	/* --color-black: hsl(180, 1.45%, 13.53%); */
+	--color-black: hsl(0, 0%, 0%);
+	/* --color-white: hsl(120, 25%, 95.29%); */
+	--color-white: hsl(0, 0%, 95%);
+	/* --color-muted: color-mix(in oklch, var(--color-white) 50%, transparent); */
+	/* --color-muted: hsl(135, 1.72%, 54.51%); */
+	--color-muted: hsl(0, 0%, 47.45%);
+	/* --color-border: color-mix(in oklch, var(--color-white) 30%, transparent); */
+	/* --color-border: hsl(150, 1.03%, 38.04%); */
+	--color-border: hsl(0, 0%, 28.63%);
+
+	/* --font-text: 'Fira Code', monospace; */
+	--font-text: 'Consolas', monospace;
+	/* --font-text: 'JetBrains Mono', monospace; */
 	--font-display: 'Chakra Petch', sans-serif;
+	--animate-bg-breathe: bg-breathe 4s ease-in-out infinite;
+	--animate-corner-breathe: corner-breathe 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	--animate-corner-breathe-out: corner-breathe-out 500ms linear;
 }
 
 @layer base {
-	main {
-		@apply mx-4 flex h-full flex-1 overflow-auto border-x-1 border-x-white/30;
-	}
 	h1 {
 		@apply font-display text-2xl;
 	}
@@ -25,30 +35,35 @@
 	}
 
 	h3 {
-		@apply font-text text-lg;
+		@apply font-display text-lg font-medium;
 	}
 
 	p {
 		@apply font-text text-sm font-extralight;
 	}
+
+	pre {
+		@apply font-text text-xs leading-3.5 md:text-sm md:leading-4;
+	}
 }
 
 @layer components {
 	.corner-focus {
-		--focus-t: 1px; /* border thickness */
-		--focus-c: var(--color-white); /* color of the border */
-		--focus-l: 4px; /* corner width */
-
-		border: var(--focus-t) solid transparent;
+		--focus-t: 1px; /* thickness */
+		--focus-c: var(--color-white); /* color */
+		--focus-l: 4px; /* length */
 		--_g: transparent 90deg, var(--focus-c) 0;
 		--_p: var(--focus-l) var(--focus-l) border-box no-repeat;
-		@apply box-border focus-visible:outline-none;
+		position: relative;
+		outline-style: none;
 	}
-	.corner-focus {
-		background: none;
-	}
-	.corner-focus:hover,
-	.corner-focus:focus-visible {
+
+	.corner-focus::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		opacity: 0;
 		background:
 			conic-gradient(from 90deg at top var(--focus-t) left var(--focus-t), var(--_g)) 0 0 /
 				var(--_p),
@@ -58,5 +73,41 @@
 				var(--_p),
 			conic-gradient(from -90deg at bottom var(--focus-t) right var(--focus-t), var(--_g)) 100%
 				100% / var(--_p);
+	}
+
+	.corner-breathe::before {
+		animation: var(--animate-corner-breathe);
+	}
+
+	.corner-breathe-out::before {
+		animation: var(--animate-corner-breathe-out);
+	}
+}
+
+@keyframes appear {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes corner-breathe {
+	0%,
+	100% {
+		opacity: 0.5;
+	}
+	50% {
+		opacity: 1;
+	}
+}
+
+@keyframes corner-breathe-out {
+	0% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 0;
 	}
 }
