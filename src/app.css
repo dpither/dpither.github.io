@@ -1,56 +1,77 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Fira+Code:wght@300..700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap'); */
 @import 'tailwindcss';
 @plugin '@iconify/tailwind4';
 
+@font-face {
+	font-family: 'Iosevka Web';
+	font-display: block;
+	font-weight: 400;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/Iosevka-Regular-subset.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Iosevka Web';
+	font-display: block;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/Iosevka-Medium-subset.woff2') format('woff2');
+}
+
 @theme {
 	--color-*: initial;
-	--color-err: #ff00ff;
 	/* --color-black: hsl(180, 1.45%, 13.53%); */
-	--color-black: hsl(0, 0%, 0%);
 	/* --color-white: hsl(120, 25%, 95.29%); */
-	--color-white: hsl(0, 0%, 95%);
-	/* --color-muted: color-mix(in oklch, var(--color-white) 50%, transparent); */
 	/* --color-muted: hsl(135, 1.72%, 54.51%); */
-	--color-muted: hsl(0, 0%, 47.45%);
-	/* --color-border: color-mix(in oklch, var(--color-white) 30%, transparent); */
+	/* --color-muted: hsl(0, 0%, 47.45%); */
 	/* --color-border: hsl(150, 1.03%, 38.04%); */
-	--color-border: hsl(0, 0%, 28.63%);
 
-	/* --font-text: 'Fira Code', monospace; */
-	--font-text: 'Consolas', monospace;
-	/* --font-text: 'JetBrains Mono', monospace; */
-	--font-display: 'Chakra Petch', sans-serif;
-	--animate-bg-breathe: bg-breathe 4s ease-in-out infinite;
-	--animate-corner-breathe: corner-breathe 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-	--animate-corner-breathe-out: corner-breathe-out 500ms linear;
+	--color-bg: hsl(0, 0%, 0%);
+	--color-panel: hsl(0, 0%, 3%);
+	--color-border: hsl(0, 0%, 12%);
+
+	--color-accent: hsl(0, 0%, 90%);
+	--color-fg: hsl(0, 0%, 70%);
+	--color-muted: hsl(0, 0%, 50%);
+
+	/* --font-text: 'Consolas', monospace; */
+	--font-text: 'Iosevka Web', monospace;
+	/* --font-text: 'Jetbrains Mono', monospace; */
+	/* --font-display: 'Chakra Petch', sans-serif; */
+	--animate-corner-breathe: corner-breathe 750ms var(--ease-default) infinite;
+	--animate-corner-breathe-out: corner-breathe-out 250ms linear;
+	--ease-default: cubic-bezier(0.4, 0, 0.6, 1);
+	--timing-default: 150ms;
 }
 
 @layer base {
+	body {
+		font-variant-ligatures: none;
+	}
+
 	h1 {
-		@apply font-display text-2xl;
+		@apply text-2xl font-medium;
 	}
 
 	h2 {
-		@apply font-display text-xl;
-	}
-
-	h3 {
-		@apply font-display text-lg font-medium;
-	}
-
-	p {
-		@apply font-text text-sm font-extralight;
+		@apply text-xl font-medium;
 	}
 
 	pre {
-		@apply font-text text-xs leading-3.5 md:text-sm md:leading-4;
+		@apply font-text text-sm leading-4 md:text-base md:leading-5;
 	}
 }
 
 @layer components {
+	.transition-default {
+		transition: all var(--timing-default) var(--ease-default);
+	}
+
 	.corner-focus {
 		--focus-t: 1px; /* thickness */
-		--focus-c: var(--color-white); /* color */
+		--focus-c: var(--color-accent); /* color */
 		--focus-l: 4px; /* length */
 		--_g: transparent 90deg, var(--focus-c) 0;
 		--_p: var(--focus-l) var(--focus-l) border-box no-repeat;
@@ -61,7 +82,7 @@
 	.corner-focus::before {
 		content: '';
 		position: absolute;
-		inset: 0;
+		inset: 0px;
 		pointer-events: none;
 		opacity: 0;
 		background:
@@ -73,23 +94,38 @@
 				var(--_p),
 			conic-gradient(from -90deg at bottom var(--focus-t) right var(--focus-t), var(--_g)) 100%
 				100% / var(--_p);
+		transition: opacity var(--timing-default) var(--ease-default);
 	}
-
-	.corner-breathe::before {
-		animation: var(--animate-corner-breathe);
-	}
-
-	.corner-breathe-out::before {
-		animation: var(--animate-corner-breathe-out);
-	}
-}
-
-@keyframes appear {
-	0% {
-		opacity: 0;
-	}
-	100% {
+	.corner-focus:hover::before,
+	.corner-focus:focus-visible::before {
 		opacity: 1;
+	}
+
+	.slide-in {
+		display: inline-block;
+		opacity: 0;
+		animation:
+			slide-in-left var(--timing-default) forwards var(--ease-default),
+			fade-in var(--timing-default) forwards var(--ease-default);
+	}
+
+	.fade-in {
+		display: inline-block;
+		opacity: 0;
+		animation: fade-in var(--timing-default) forwards var(--ease-default);
+	}
+
+	.link {
+		outline-style: none;
+		color: var(--color-muted);
+		transition: all var(--timing-default) var(--ease-default);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.link:hover,
+	.link:focus-visible {
+		color: var(--color-accent);
+		border-bottom: 1px solid var(--color-accent);
 	}
 }
 
@@ -110,4 +146,27 @@
 	100% {
 		opacity: 0;
 	}
+}
+
+@keyframes slide-in-left {
+	from {
+		transform: translateX(-5%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+::selection {
+	background: var(--color-accent);
+	color: var(--color-bg);
 }

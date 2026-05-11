@@ -1,0 +1,15 @@
+<script lang="ts">
+	import ProjectCard from '$lib/components/ProjectCard.svelte';
+	import { projects } from '$lib/data/projects';
+</script>
+
+<section id="projects" class="border-border flex scroll-mt-12 flex-col gap-4 py-8">
+	<h2 class="text-accent w-full px-4">// PROJECTS</h2>
+	<div class="flex justify-center">
+		<div class="grid grid-cols-1 gap-4 px-4 md:grid-cols-2 xl:grid-cols-3">
+			{#each projects as project, i (project.id)}
+				<ProjectCard {project} {i} />
+			{/each}
+		</div>
+	</div>
+</section>

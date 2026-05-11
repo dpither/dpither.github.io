@@ -1,7 +1,4 @@
 <script lang="ts">
-	// const frames = ['⣷', '⣯', '⣟', '⡿', '⢿', '⣻', '⣽', '⣾'];
-	// const frames = ['⠌', '⠒', '⠡'];
-	// const frames = ['⡈', '⠔', '⠢', '⢁'];
 	const frames = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
 	let index = $state(0);
 
