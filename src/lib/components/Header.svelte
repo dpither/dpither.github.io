@@ -23,7 +23,7 @@
 
 <svelte:window on:scroll={setActiveSection} on:focus={setActiveSection} />
 <header
-	class="border-border bg-panel sticky top-0 z-10 flex h-12 w-full items-center justify-between border-b-1 ps-2 pe-3 xl:ps-4 xl:pe-5"
+	class="border-border bg-panel sticky top-0 z-10 flex h-12 w-full items-center justify-between border-b ps-2 pe-3 xl:ps-4 xl:pe-5"
 >
 	<nav aria-label="section navigation" class="flex gap-2">
 		<NavTab href="/" label="Home" isActive={activeSection == 'hero'} />

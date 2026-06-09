@@ -3,15 +3,15 @@
 	import NavIcon from './NavIcon.svelte';
 	import BrailleLoader from './BrailleLoader.svelte';
 
-	let { project, i }: { project: Project; i: number } = $props();
+	let { project }: { project: Project } = $props();
 	let imgLoaded = $state(false);
 </script>
 
 <div
-	class=" group border-border transition-default hover:border-accent bg-panel relative w-full border-1 text-sm lg:text-base"
+	class=" group border-border transition-default hover:border-accent bg-panel relative w-full border text-sm lg:text-base"
 >
 	<div
-		class="border-border transition-default group-hover:border-accent flex w-full items-center justify-between border-b-1"
+		class="border-border transition-default group-hover:border-accent flex w-full items-center justify-between border-b"
 	>
 		<p class="group-hover:text-accent transition-default px-4 py-2 font-medium">
 			{project.title}
@@ -49,7 +49,7 @@
 			<div class="flex items-center gap-2">
 				{#each project.tags as tag (tag)}
 					<p
-						class="transition-default border-border text-muted group-hover:text-fg border-1 px-2 py-1 text-xs"
+						class="transition-default border-border text-muted group-hover:text-fg border px-2 py-1 text-xs"
 					>
 						{tag}
 					</p>

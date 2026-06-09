@@ -52,7 +52,7 @@
 
 <section
 	id="hero"
-	class="border-border relative flex h-[calc(100vh-48px)] flex-col items-center justify-center gap-3 border-b-1 md:flex-row"
+	class="border-border relative flex h-[calc(100vh-48px)] flex-col items-center justify-center gap-3 border-b md:flex-row"
 >
 	<h2
 		class="fade-in text-accent absolute top-0 w-full px-4 pt-8"
@@ -80,11 +80,11 @@
 				style="animation-delay: {(isStacked
 					? (blockHeight + 0) * lineDelay
 					: 0 * lineDelay + blockWidth) * charDelay}ms"
-				>Location    </span><span
+				>Location                       </span><span
 				class="slide-in text-accent"
 				style="animation-delay: {(isStacked
 					? (blockHeight + 0) * lineDelay
-					: 0 * lineDelay + blockWidth) * charDelay}ms">Vancouver (Richmond), BC, Canada</span
+					: 0 * lineDelay + blockWidth) * charDelay}ms">Vancouver, BC</span
 			>
 <span
 				class="slide-in text-muted"
