@@ -1,6 +1,5 @@
 <script lang="ts">
 	import NavTab from '$lib/components/NavTab.svelte';
-	import NavIcon from '$lib/components/NavIcon.svelte';
 	import { onMount } from 'svelte';
 
 	let activeSection = $state('');
@@ -23,21 +22,39 @@
 
 <svelte:window on:scroll={setActiveSection} on:focus={setActiveSection} />
 <header
-	class="border-border bg-panel sticky top-0 z-10 flex h-12 w-full items-center justify-between border-b ps-2 pe-3 xl:ps-4 xl:pe-5"
+	class="border-border bg-panel sticky top-0 z-10 flex h-12 w-full items-center justify-between border-b px-4"
 >
 	<nav aria-label="section navigation" class="flex gap-2">
 		<NavTab href="/" label="Home" isActive={activeSection == 'hero'} />
 		<NavTab href="/#projects" label="Projects" isActive={activeSection == 'projects'} />
 	</nav>
 	<nav aria-label="external links" class="flex gap-2">
-		<NavIcon href="mailto:dylanpither@gmail.com" label="email">
-			<span class="icon-[mdi--email]" style="width: 24px; height: 24px;"></span>
-		</NavIcon>
-		<NavIcon href="https://linkedin.com/in/dylanpither" label="linkedin"
-			><span class="icon-[mdi--linkedin]" style="width: 24px; height: 24px;"></span>
-		</NavIcon>
-		<NavIcon href="https://github.com/dpither" label="github"
-			><span class="icon-[mdi--github]" style="width: 24px; height: 24px;"></span>
-		</NavIcon>
+		<a
+			href="mailto:dylanpither@gmail.com"
+			target="_blank"
+			rel="noopener noreferrer"
+			aria-label="email (opens in new tab)"
+			class="text-fg hocus:text-accent hocus:bg-border border-border hocus:border-accent transition-default box-border flex size-8 items-center justify-center border outline-none"
+		>
+			<span class="icon-[mdi--email] size-6"></span>
+		</a>
+		<a
+			href="https://linkedin.com/in/dylanpither"
+			target="_blank"
+			rel="noopener noreferrer"
+			aria-label="linkedin (opens in new tab)"
+			class="text-fg hocus:text-accent hocus:bg-border border-border hocus:border-accent transition-default box-border flex size-8 items-center justify-center border outline-none"
+		>
+			<span class="icon-[mdi--linkedin] size-6"></span>
+		</a>
+		<a
+			href="https://github.com/dpither"
+			target="_blank"
+			rel="noopener noreferrer"
+			aria-label="github (opens in new tab)"
+			class="text-fg hocus:text-accent hocus:bg-border border-border hocus:border-accent transition-default box-border flex size-8 items-center justify-center border outline-none"
+		>
+			<span class="icon-[mdi--github] size-6"></span>
+		</a>
 	</nav>
 </header>

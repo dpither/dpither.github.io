@@ -54,15 +54,15 @@
 	id="hero"
 	class="border-border relative flex h-[calc(100vh-48px)] flex-col items-center justify-center gap-3 border-b md:flex-row"
 >
-	<h2
+	<h1
 		class="fade-in text-accent absolute top-0 w-full px-4 pt-8"
 		style="animation-delay: {(isStacked
 			? (blockHeight + 12) * lineDelay
 			: 12 * lineDelay + blockWidth) * charDelay}ms;
 			animation-duration: calc(var(--default-transition-duration) * 4)"
 	>
-		// HOME
-	</h2>
+		/
+	</h1>
 
 	<div class="flex flex-col">
 		{#each blockName as line, lineIndex (lineIndex)}

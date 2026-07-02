@@ -22,19 +22,19 @@
 @theme {
 	--color-*: initial;
 	--color-bg: hsl(0, 0%, 0%);
-	--color-panel: hsl(0, 0%, 3%);
-	--color-border: hsl(0, 0%, 12%);
-	--color-accent: hsl(0, 0%, 90%);
-	--color-fg: hsl(0, 0%, 70%);
-	--color-muted: hsl(0, 0%, 50%);
+	--color-panel: hsl(0, 0%, 5%);
+	--color-border: hsl(0, 0%, 15%);
+	--color-muted: hsl(0, 0%, 55%);
+	--color-fg: hsl(0, 0%, 75%);
+	--color-accent: hsl(0, 0%, 95%);
 
 	--font-text: 'Iosevka Web', monospace;
 
-	--animate-corner-breathe: corner-breathe 750ms var(--ease-default) infinite;
-	--animate-corner-breathe-out: corner-breathe-out 250ms linear;
-	--ease-default: cubic-bezier(0.4, 0, 0.6, 1);
-	--timing-default: 150ms;
+	--ease-default: cubic-bezier(0.6, 0, 0.4, 1);
+	--timing-default: 100ms;
 }
+
+@custom-variant hocus (&:hover, &:focus-visible);
 
 @layer base {
 	body {
@@ -42,10 +42,6 @@
 	}
 
 	h1 {
-		@apply text-2xl font-medium;
-	}
-
-	h2 {
 		@apply text-xl font-medium;
 	}
 
@@ -57,38 +53,6 @@
 @layer components {
 	.transition-default {
 		transition: all var(--timing-default) var(--ease-default);
-	}
-
-	.corner-focus {
-		--focus-t: 1px; /* thickness */
-		--focus-c: var(--color-accent); /* color */
-		--focus-l: 4px; /* length */
-		--_g: transparent 90deg, var(--focus-c) 0;
-		--_p: var(--focus-l) var(--focus-l) border-box no-repeat;
-		position: relative;
-		outline-style: none;
-	}
-
-	.corner-focus::before {
-		content: '';
-		position: absolute;
-		inset: 0px;
-		pointer-events: none;
-		opacity: 0;
-		background:
-			conic-gradient(from 90deg at top var(--focus-t) left var(--focus-t), var(--_g)) 0 0 /
-				var(--_p),
-			conic-gradient(from 180deg at top var(--focus-t) right var(--focus-t), var(--_g)) 100% 0 /
-				var(--_p),
-			conic-gradient(from 0deg at bottom var(--focus-t) left var(--focus-t), var(--_g)) 0 100% /
-				var(--_p),
-			conic-gradient(from -90deg at bottom var(--focus-t) right var(--focus-t), var(--_g)) 100%
-				100% / var(--_p);
-		transition: opacity var(--timing-default) var(--ease-default);
-	}
-	.corner-focus:hover::before,
-	.corner-focus:focus-visible::before {
-		opacity: 1;
 	}
 
 	.slide-in {

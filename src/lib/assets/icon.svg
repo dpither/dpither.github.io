@@ -1,5 +1,21 @@
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M13 30L11 30L19 1.99997L21 1.99997L13 30Z" fill="#E6E6E6"/>
-<path d="M2 16.918L2 15.083L13.0918 8.68066L12.3018 11.4463L4.41211 16L10.0674 19.2656L9.50098 21.249L2 16.918Z" fill="#E6E6E6"/>
-<path d="M30 15.082V16.917L18.9082 23.3193L19.6982 20.5537L27.5879 16L21.9326 12.7343L22.499 10.7509L30 15.082Z" fill="#E6E6E6"/>
+<rect width="32" height="32" fill="black"/>
+<mask id="mask0_28_41" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="2" y="2" width="28" height="28">
+<rect x="2" y="2" width="28" height="28" fill="white"/>
+</mask>
+<g mask="url(#mask0_28_41)">
+<path d="M12.5 30L19.5 2" stroke="#F2F2F2" stroke-width="2" stroke-linecap="square"/>
+</g>
+<mask id="mask1_28_41" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="18" y="2" width="12" height="29">
+<path d="M25 2.10734L18 30.1073H30V2.10734H25Z" fill="white"/>
+</mask>
+<g mask="url(#mask1_28_41)">
+<path d="M18 10.1073L30 16.1073L18 22.1073" stroke="#F2F2F2" stroke-width="2" stroke-linecap="square"/>
+</g>
+<mask id="mask2_28_41" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="2" y="2" width="12" height="28">
+<path d="M7 30L14 2H2V30H7Z" fill="white"/>
+</mask>
+<g mask="url(#mask2_28_41)">
+<path d="M14 10L2 16L14 22" stroke="#F2F2F2" stroke-width="2" stroke-linecap="square"/>
+</g>
 </svg>

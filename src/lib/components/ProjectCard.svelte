@@ -1,31 +1,41 @@
 <script lang="ts">
 	import type { Project } from '$lib/data/types';
-	import NavIcon from './NavIcon.svelte';
 	import BrailleLoader from './BrailleLoader.svelte';
 
 	let { project }: { project: Project } = $props();
 	let imgLoaded = $state(false);
 </script>
 
+<!-- eslint-disable svelte/no-navigation-without-resolve -->
 <div
-	class=" group border-border transition-default hover:border-accent bg-panel relative w-full border text-sm lg:text-base"
+	class=" group border-border transition-default hover:border-accent bg-bg relative w-full border text-sm lg:text-base"
 >
 	<div
-		class="border-border transition-default group-hover:border-accent flex w-full items-center justify-between border-b"
+		class="border-border transition-default group-hover:border-accent bg-panel flex h-10 w-full items-center justify-between border-b"
 	>
-		<p class="group-hover:text-accent transition-default px-4 py-2 font-medium">
+		<p class="group-hover:text-accent transition-default ps-4 font-medium">
 			{project.title}
 		</p>
-		<div class="flex gap-1 py-2 pe-3">
-			{#if project.src != undefined}
-				<NavIcon href={project.src} label="source code">
-					<span class="icon-[mdi--code]" style="width: 16px; height: 16px;"></span>
-				</NavIcon>
+		<div class="flex gap-1 py-2 pe-4">
+			{#if project?.src}
+				<a
+					href={project.src}
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="source code (opens in new tab)"
+					class="text-fg hocus:text-accent hocus:bg-border border-border hocus:border-accent transition-default box-border flex size-6 items-center justify-center border outline-none"
+					><span class="icon-[mdi--code] size-4"></span></a
+				>
 			{/if}
-			{#if project.site != undefined}
-				<NavIcon href={project.site} label="site"
-					><span class="icon-[mdi--web]" style="width: 16px; height: 16px;"></span>
-				</NavIcon>
+			{#if project?.site}
+				<a
+					href={project.site}
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="site (opens in new tab)"
+					class="text-fg hocus:text-accent hocus:bg-border border-border hocus:border-accent transition-default box-border flex size-6 items-center justify-center border outline-none"
+					><span class="icon-[mdi--web] size-4"></span></a
+				>
 			{/if}
 		</div>
 	</div>
