@@ -18,8 +18,8 @@
 			aria-label="source code (opens in new tab)"
 			class="text-fg hocus:text-accent hocus:bg-border border-border hocus:border-accent transition-default box-border flex h-6 w-14 items-center justify-center gap-1 border outline-none"
 		>
-			<span>V1.0</span>
 			<span class="icon-[mdi--code] size-4"></span>
+			<span>V1.0</span>
 		</a>
 	</div>
 </footer>
