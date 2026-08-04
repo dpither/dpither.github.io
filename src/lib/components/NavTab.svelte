@@ -5,7 +5,7 @@
 <a
 	{href}
 	aria-current={isActive ? 'page' : undefined}
-	class="transition-default hocus:text-accent hocus:border-accent font-text hocus:bg-border flex h-8 w-24 items-center justify-center border font-medium outline-none"
+	class="transition-colors-default hocus:text-accent hocus:border-accent font-text hocus:bg-border flex h-8 w-20 items-center justify-center border outline-none md:w-24 md:font-medium"
 	class:text-accent={isActive}
 	class:border-accent={isActive}
 	class:text-fg={!isActive}

@@ -34,7 +34,7 @@
 			target="_blank"
 			rel="noopener noreferrer"
 			aria-label="email (opens in new tab)"
-			class="text-fg hocus:text-accent hocus:bg-border border-border hocus:border-accent transition-default box-border flex size-8 items-center justify-center border outline-none"
+			class="text-fg hocus:text-accent hocus:bg-border border-border hocus:border-accent transition-colors-default box-border flex size-8 items-center justify-center border outline-none"
 		>
 			<span class="icon-[mdi--email] size-6"></span>
 		</a>
@@ -43,7 +43,7 @@
 			target="_blank"
 			rel="noopener noreferrer"
 			aria-label="linkedin (opens in new tab)"
-			class="text-fg hocus:text-accent hocus:bg-border border-border hocus:border-accent transition-default box-border flex size-8 items-center justify-center border outline-none"
+			class="text-fg hocus:text-accent hocus:bg-border border-border hocus:border-accent transition-colors-default box-border flex size-8 items-center justify-center border outline-none"
 		>
 			<span class="icon-[mdi--linkedin] size-6"></span>
 		</a>
@@ -52,7 +52,7 @@
 			target="_blank"
 			rel="noopener noreferrer"
 			aria-label="github (opens in new tab)"
-			class="text-fg hocus:text-accent hocus:bg-border border-border hocus:border-accent transition-default box-border flex size-8 items-center justify-center border outline-none"
+			class="text-fg hocus:text-accent hocus:bg-border border-border hocus:border-accent transition-colors-default box-border flex size-8 items-center justify-center border outline-none"
 		>
 			<span class="icon-[mdi--github] size-6"></span>
 		</a>

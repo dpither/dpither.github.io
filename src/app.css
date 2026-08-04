@@ -19,6 +19,17 @@
 	src: url('/fonts/Iosevka-Medium-subset.woff2') format('woff2');
 }
 
+@font-face {
+	font-family: 'Iosevka Web';
+	font-display: block;
+	font-weight: 700;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('/fonts/Iosevka-Bold-subset.woff2') format('woff2');
+}
+
+@custom-variant hocus (&:hover, &:focus-visible);
+
 @theme {
 	--color-*: initial;
 	--color-bg: hsl(0, 0%, 0%);
@@ -27,14 +38,39 @@
 	--color-muted: hsl(0, 0%, 55%);
 	--color-fg: hsl(0, 0%, 75%);
 	--color-accent: hsl(0, 0%, 95%);
+	--color-error: hsl(0, 65%, 55%);
+	--color-warn: hsl(40, 65%, 55%);
+	--color-success: hsl(140, 65%, 55%);
 
 	--font-text: 'Iosevka Web', monospace;
+	--font-mono: 'Iosevka Web', monospace;
 
 	--ease-default: cubic-bezier(0.6, 0, 0.4, 1);
-	--timing-default: 100ms;
-}
+	--timing-default: 150ms;
 
-@custom-variant hocus (&:hover, &:focus-visible);
+	--animate-fade-in: fade-in var(--default-transition-duration) var(--ease-default) backwards;
+	--animate-type: fade-in 1ms steps(1, jump-start) backwards;
+
+	@keyframes fade-in {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes slide-in-left {
+		0% {
+			opacity: 0;
+			transform: translateX(-5%);
+		}
+		100 % {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+}
 
 @layer base {
 	body {
@@ -44,29 +80,20 @@
 	h1 {
 		@apply text-xl font-medium;
 	}
-
-	pre {
-		@apply font-text text-sm leading-4 md:text-base md:leading-5;
-	}
 }
 
 @layer components {
-	.transition-default {
-		transition: all var(--timing-default) var(--ease-default);
-	}
+	/* .transition-default {
+		transition: all var(--default-transition-duration) var(--ease-default);
+	} */
 
-	.slide-in {
-		display: inline-block;
-		opacity: 0;
-		animation:
-			slide-in-left var(--timing-default) forwards var(--ease-default),
-			fade-in var(--timing-default) forwards var(--ease-default);
-	}
-
-	.fade-in {
-		display: inline-block;
-		opacity: 0;
-		animation: fade-in var(--timing-default) forwards var(--ease-default);
+	.transition-colors-default,
+	.link {
+		transition-property:
+			color, background-color, border-color, outline-color, text-decoration-color, fill, stroke,
+			--tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+		transition-timing-function: var(--ease-default);
+		transition-duration: var(--default-transition-duration);
 	}
 
 	.link {
@@ -75,29 +102,14 @@
 		transition: all var(--timing-default) var(--ease-default);
 		border-bottom: 1px solid var(--color-border);
 	}
-
 	.link:hover,
 	.link:focus-visible {
 		color: var(--color-accent);
 		border-bottom: 1px solid var(--color-accent);
 	}
-}
 
-@keyframes slide-in-left {
-	from {
-		transform: translateX(-5%);
-	}
-	to {
-		transform: translateX(0);
-	}
-}
-
-@keyframes fade-in {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
+	.text-glow {
+		text-shadow: 0px 0px 1px;
 	}
 }
 
