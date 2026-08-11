@@ -1,15 +1,17 @@
 <script lang="ts">
-	import NavTab from '$lib/components/NavTab.svelte';
+	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
+	import Icon from './Icon.svelte';
+	import { page } from '$app/state';
 
-	let activeSection = $state('');
+	let activeSection = $state(page.url.hash ? page.url.hash : '#hero');
 
 	const setActiveSection = () => {
 		const sections = document.querySelectorAll('section[id]');
 		const headerBottom = document.querySelector('header')?.getBoundingClientRect().bottom ?? 0;
 		for (var section of sections) {
 			if (section.getBoundingClientRect().bottom > headerBottom * 5) {
-				activeSection = section.id;
+				activeSection = '#' + section.id;
 				break;
 			}
 		}
@@ -23,38 +25,28 @@
 <svelte:window on:scroll={setActiveSection} on:focus={setActiveSection} />
 <header
 	class="border-border bg-panel sticky top-0 z-10 flex h-12 w-full items-center justify-between border-b px-4"
+	// class="border-border bg-panel fixed bottom-0 z-10 flex h-12 w-full items-center justify-between border-t px-4"
 >
-	<nav aria-label="section navigation" class="flex gap-2">
-		<NavTab href="/" label="Home" isActive={activeSection == 'hero'} />
-		<NavTab href="/#projects" label="Projects" isActive={activeSection == 'projects'} />
-	</nav>
-	<nav aria-label="external links" class="flex gap-2">
+	<nav aria-label="section navigation" class="flex gap-2 font-medium">
 		<a
-			href="mailto:dylanpither@gmail.com"
-			target="_blank"
-			rel="noopener noreferrer"
-			aria-label="email (opens in new tab)"
-			class="text-fg hocus:text-accent hocus:bg-border border-border hocus:border-accent transition-colors-default box-border flex size-8 items-center justify-center border outline-none"
-		>
-			<span class="icon-[mdi--email] size-6"></span>
+			href={resolve('/')}
+			aria-current={activeSection == '#hero' ? 'page' : undefined}
+			class="nav group transition-colors-default hocus:text-accent hocus:border-accent"
+			class:text-accent={activeSection == '#hero'}
+			// class:border-accent={activeSection == '#hero'}
+			class:text-muted={!(activeSection == '#hero')}
+			// class:border-border={!(activeSection == '#hero')}
+			><Icon />
 		</a>
 		<a
-			href="https://linkedin.com/in/dylanpither"
-			target="_blank"
-			rel="noopener noreferrer"
-			aria-label="linkedin (opens in new tab)"
-			class="text-fg hocus:text-accent hocus:bg-border border-border hocus:border-accent transition-colors-default box-border flex size-8 items-center justify-center border outline-none"
-		>
-			<span class="icon-[mdi--linkedin] size-6"></span>
-		</a>
-		<a
-			href="https://github.com/dpither"
-			target="_blank"
-			rel="noopener noreferrer"
-			aria-label="github (opens in new tab)"
-			class="text-fg hocus:text-accent hocus:bg-border border-border hocus:border-accent transition-colors-default box-border flex size-8 items-center justify-center border outline-none"
-		>
-			<span class="icon-[mdi--github] size-6"></span>
+			href={resolve('/#projects')}
+			aria-current={activeSection == '#projects' ? 'page' : undefined}
+			class="nav group transition-colors-default hocus:text-accent hocus:border-accent px-2"
+			class:text-accent={activeSection == '#projects'}
+			// class:border-accent={activeSection == '#projects'}
+			class:text-muted={!(activeSection == '#projects')}
+			// class:border-border={!(activeSection == '#projects')}
+			>Projects
 		</a>
 	</nav>
 </header>
