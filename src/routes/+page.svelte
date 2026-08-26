@@ -4,7 +4,7 @@
 	import Seo from '$lib/components/Seo.svelte';
 
 	const WAVE_DELAY = 500;
-	const waveFrames = rawWave.split(',\r\n');
+	const waveFrames = rawWave.split(/,\r?\n/);
 	let waveIndex = $state(0);
 
 	$effect(() => {
