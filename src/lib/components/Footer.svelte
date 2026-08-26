@@ -1,14 +1,11 @@
 <script lang="ts">
+	import Clock from './Clock.svelte';
 </script>
 
 <footer
-	class="text-muted border-border bg-panel flex h-12 w-full items-center justify-between border-t px-4 text-xs"
+	class="bg-panel border-border text-muted flex justify-between border-x border-b p-1 text-xs"
 >
-	<div class="hidden md:flex md:flex-1"></div>
-	<span>
-		By <a href="https://dpither.com" rel="noopener noreferrer" class="link">Dylan Pither</a>
-	</span>
-	<div class="flex items-center gap-1 md:flex-1 md:justify-end">
+	<div class="flex flex-1">
 		<a
 			href="https://github.com/dpither/dpither.github.io"
 			target="_blank"
@@ -16,7 +13,12 @@
 			aria-label="source code (opens in new tab)"
 			class="link"
 		>
-			<span>v1.1</span>
+			v1.1
 		</a>
 	</div>
+	<span class="flex items-center gap-1">
+		<span class="icon-[material-symbols--copyright-outline-sharp] size-3"></span>Dylan Pither
+	</span>
+
+	<div class="flex flex-1 items-center justify-end gap-1"><Clock /></div>
 </footer>

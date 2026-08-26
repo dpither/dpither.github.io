@@ -13,33 +13,45 @@ export const projects: Project[] = [
 		title: 'Stipple',
 		tags: ['Typescript', 'Svelte', 'Tailwind CSS'],
 		description:
-			'A web application that simplifies the creation of animations that use braille characters.',
+			'A web application that simplifies the creation of frame-based Unicode braille pattern animations.',
 		img: stippleImg,
 		links: [
-			{ label: 'site', url: 'https://dpither.com/stipple/' },
-			{ label: 'code', url: 'https://github.com/dpither/stipple' }
+			{ label: 'site', ariaLabel: 'Stipple website', url: 'https://dpither.com/stipple/' },
+			{ label: 'code', ariaLabel: 'Stipple source code', url: 'https://github.com/dpither/stipple' }
 		]
 	},
 	{
 		id: 'discovraphy',
 		title: 'Discovraphy',
 		tags: ['Typescript', 'React', 'Tailwind CSS'],
-		description: 'A web application for swiping through an artists discography.',
+		description: 'A web application for browsing music by swiping through an artists discography.',
 		img: discovraphyImg,
 		links: [
-			{ label: 'site', url: 'https://dpither.com/discovraphy/' },
-			{ label: 'code', url: 'https://github.com/dpither/discovraphy' }
+			{ label: 'site', ariaLabel: 'Discovraphy website', url: 'https://dpither.com/discovraphy/' },
+			{
+				label: 'code',
+				ariaLabel: 'Discovraphy source code',
+				url: 'https://github.com/dpither/discovraphy'
+			}
 		]
 	},
 	{
 		id: 'morganized-chaos',
 		title: 'Morganized Chaos',
 		tags: ['GDScript', 'Godot'],
-		description: 'A typing game about brainstorming and developing a game for a game jam.',
+		description: 'A typing game about brainstorming and developing your entry into a game jam.',
 		img: morganizedChaosImg,
 		links: [
-			{ label: 'play', url: 'https://dpither.itch.io/morganized-chaos' },
-			{ label: 'code', url: 'https://github.com/dpither/morganized-chaos' }
+			{
+				label: 'play',
+				ariaLabel: 'Play Morganized Chaos',
+				url: 'https://dpither.itch.io/morganized-chaos'
+			},
+			{
+				label: 'code',
+				ariaLabel: 'Morganized Chaos source code',
+				url: 'https://github.com/dpither/morganized-chaos'
+			}
 		]
 	},
 	{
@@ -49,7 +61,13 @@ export const projects: Project[] = [
 		description:
 			'An Android application that turns connected Bluetooth devices into smart keys that can automatically lock the device.',
 		img: superSmartKeyImg,
-		links: [{ label: 'code', url: 'https://github.com/dpither/super-smart-key' }]
+		links: [
+			{
+				label: 'code',
+				ariaLabel: 'Super Smart Key source code',
+				url: 'https://github.com/dpither/super-smart-key'
+			}
+		]
 	},
 	{
 		id: 'interactive-augmented-reality-factory',
@@ -58,7 +76,13 @@ export const projects: Project[] = [
 		description:
 			'A teaching tool for creating configurable factory simulations that can be interacted with in augmented reality.',
 		img: interactiveAugmentedRealityFactoryImg,
-		links: [{ label: 'demo', url: 'https://www.youtube.com/watch?v=J4z8fCILfl8' }]
+		links: [
+			{
+				label: 'demo',
+				ariaLabel: 'Interactive Augmented Reality Factory source code',
+				url: 'https://www.youtube.com/watch?v=J4z8fCILfl8'
+			}
+		]
 	},
 	{
 		id: 'automated-posture-checker',
@@ -66,7 +90,13 @@ export const projects: Project[] = [
 		tags: ['Java'],
 		description: 'A posture monitoring system that sends stretch and posture correction alerts.',
 		img: automatedPostureCheckerImg,
-		links: [{ label: 'code', url: 'https://github.com/dpither/automated-posture-checker-mirror' }]
+		links: [
+			{
+				label: 'code',
+				ariaLabel: 'Automated Posture Checker source code',
+				url: 'https://github.com/dpither/automated-posture-checker-mirror'
+			}
+		]
 	},
 	{
 		id: 'ubc-explore',
@@ -75,6 +105,12 @@ export const projects: Project[] = [
 		description:
 			'A mobile application for exploring and learning about a university campus in augmented reality.',
 		img: ubcExploreImg,
-		links: [{ label: 'code', url: 'https://github.com/CPEN321-ubcexplore/CPEN321-final-project' }]
+		links: [
+			{
+				label: 'code',
+				ariaLabel: 'UBC Explore source code',
+				url: 'https://github.com/CPEN321-ubcexplore/CPEN321-final-project'
+			}
+		]
 	}
 ];

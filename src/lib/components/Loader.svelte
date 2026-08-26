@@ -1,14 +1,17 @@
 <script lang="ts">
-	// const FRAMES = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
-	const FRAMES = ['/', '-', '\\', '|'];
+	const FRAMES = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
 
-	let { loading = $bindable(true) } = $props();
-	const frameDelay = 160;
+	interface Props {
+		loading?: boolean;
+	}
+
+	let { loading = $bindable(true) }: Props = $props();
+	const frameDelay = 40;
 	const duration = frameDelay * FRAMES.length;
 </script>
 
 {#if loading}
-	<span class="absolute inline-flex items-center">
+	<span class="inline-flex items-center">
 		<span class="relative inline-block h-[1.2em] w-[1ch] font-mono">
 			{#each FRAMES as frame, i (i)}
 				<span class="frame" style="animation-delay: {i * frameDelay}ms; --duration:{duration}ms"
@@ -28,10 +31,10 @@
 	}
 	@keyframes braille-frame {
 		0%,
-		25% {
+		10% {
 			opacity: 1;
 		}
-		25%,
+		10%,
 		100% {
 			opacity: 0;
 		}
