@@ -11,7 +11,7 @@ export const projects: Project[] = [
 	{
 		id: 'stipple',
 		title: 'Stipple',
-		tags: ['Typescript', 'Svelte', 'Tailwind CSS'],
+		tags: ['TypeScript', 'Svelte', 'Tailwind CSS'],
 		description:
 			'A web application that simplifies the creation of frame-based Unicode braille pattern animations.',
 		img: stippleImg,
@@ -23,7 +23,7 @@ export const projects: Project[] = [
 	{
 		id: 'discovraphy',
 		title: 'Discovraphy',
-		tags: ['Typescript', 'React', 'Tailwind CSS'],
+		tags: ['TypeScript', 'React', 'Tailwind CSS'],
 		description: 'A web application for browsing music by swiping through an artists discography.',
 		img: discovraphyImg,
 		links: [
@@ -101,7 +101,7 @@ export const projects: Project[] = [
 	{
 		id: 'ubc-explore',
 		title: 'UBC Explore',
-		tags: ['Javascript', 'Node.js', 'MySQL'],
+		tags: ['JavaScript', 'Node.js', 'MySQL'],
 		description:
 			'A mobile application for exploring and learning about a university campus in augmented reality.',
 		img: ubcExploreImg,
